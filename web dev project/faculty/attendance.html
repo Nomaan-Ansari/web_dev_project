@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance - Greenwood High School</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- DASHBOARD HEADER -->
+    <header class="dashboard-header">
+        <div class="header-container">
+            <!-- Top bar: User welcome and logout -->
+            <div class="dashboard-user-bar" style="width: 100%;">
+                <div class="logo-area">
+                    <span class="logo-badge">GHS</span>
+                    <div>
+                        <div class="school-name-text">Greenwood High School Portal</div>
+                        <div class="user-info">
+                            Welcome, <strong>Faculty Member</strong>
+                            <span class="role-badge">faculty</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <a href="../index.html" class="btn btn-sm btn-secondary" target="_blank"
+                        title="View Public Website">Website &rarr;</a>
+                    <a href="../backend/logout.php" class="btn btn-sm btn-danger">Logout</a>
+                </div>
+            </div>
+
+            <!-- Dashboard Navigation Tabs -->
+            <nav style="width: 100%;">
+                <ul class="dashboard-nav">
+                    <li><a href="dashboard.php">Dashboard</a></li>
+                    <li><a href="attendance.html" class="active">Student Attendance</a></li>
+                    <li><a href="assignments.html">Assignments</a></li>
+                    <li><a href="marks.html">Student Marks</a></li>
+                    <li><a href="notices.html">Notices</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <main class="main-content">
+        <!-- Alert container for feedback messages -->
+        <div id="alert-container"></div>
+
+        <div class="page-header">
+            <div>
+                <h2>Daily Student Attendance</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Select your class and date to record or update
+                    student classroom presence</p>
+            </div>
+            <div>
+                <a href="dashboard.php" class="btn btn-secondary">&larr; Back to Dashboard</a>
+            </div>
+        </div>
+
+        <!-- 1. CLASS & DATE FILTER CARD -->
+        <div class="form-card" style="margin-bottom: 25px;">
+            <h3>Select Class &amp; Date</h3>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-end; margin-top: 15px;">
+                <div style="flex: 1; min-width: 200px;">
+                    <label for="class-select" style="display: block; font-weight: 600; margin-bottom: 6px;">Select Class
+                        / Division</label>
+                    <select id="class-select" class="form-control">
+                    </select>
+                </div>
+
+                <div style="flex: 1; min-width: 200px;">
+                    <label for="date-select" style="display: block; font-weight: 600; margin-bottom: 6px;">Attendance
+                        Date</label>
+                    <input type="date" id="date-select" class="form-control">
+                </div>
+
+                <div>
+                    <button type="button" id="load-sheet-btn" class="btn btn-primary" style="padding: 10px 20px;">
+                        Load Class Sheet
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. ATTENDANCE MARKING SHEET -->
+        <form id="attendance-form" action="../backend/attendance.php" method="POST">
+            <input type="hidden" id="attendance_date" name="attendance_date" value="">
+            <input type="hidden" id="class_name" name="class_name" value="">
+
+            <div class="card-table-wrapper">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <h3>Student Attendance Sheet</h3>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">
+                        Click <strong>Present</strong> or <strong>Absent</strong> for each student
+                    </span>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 50px;">#</th>
+                            <th style="width: 130px;">Roll No</th>
+                            <th>Student Full Name</th>
+                            <th style="width: 240px;">Status</th>
+                            <th>Optional Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attendance-sheet-body">
+                        <tr>
+                            <td colspan="5" style="text-align: center; padding: 25px; color: var(--text-muted);">Loading
+                                student attendance sheet...</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div
+                    style="margin-top: 25px; padding-top: 15px; border-top: 1px solid var(--border-blue); display: flex; justify-content: flex-end;">
+                    <button type="submit" class="btn btn-primary" style="padding: 10px 25px; font-size: 1rem;">
+                        Save Attendance Records
+                    </button>
+                </div>
+            </div>
+        </form>
+    </main>
+
+
+    <!--  DASHBOARD FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Greenwood High School</h4>
+                <p>Empowering young minds through academic rigor, moral values, and creative inquiry since 1995.</p>
+                <p style="font-size: 0.85rem; color: #94a3b8;">Affiliated with Central Board of Secondary Education</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <p><a href="../index.html" style="color: #cbd5e1;">&rsaquo; Home</a></p>
+                <p><a href="../index.html#about" style="color: #cbd5e1;">&rsaquo; About Us</a></p>
+                <p><a href="../index.html#academics" style="color: #cbd5e1;">&rsaquo; Academic Curriculum</a></p>
+                <p><a href="../index.html#notices" style="color: #cbd5e1;">&rsaquo; Public Notice Board</a></p>
+                <p><a href="../login.html" style="color: #cbd5e1;">&rsaquo; Portal Login</a></p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Details</h4>
+                <p><strong>Address:</strong> 123 Education Lane, Knowledge City, State - 560001</p>
+                <p><strong>Phone:</strong> +91 (555) 019-2834 / 2835</p>
+                <p><strong>Email:</strong> info@greenwoodhigh.edu</p>
+                <p><strong>Office Hours:</strong> Monday – Friday, 8:00 AM – 3:30 PM</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Greenwood High School. All rights reserved. | Simple Web Development Project</p>
+        </div>
+    </footer>
+
+    <!-- Main Client-Side JavaScript -->
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

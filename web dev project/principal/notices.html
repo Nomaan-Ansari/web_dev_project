@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Notices - Greenwood High School</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- DASHBOARD HEADER -->
+    <header class="dashboard-header">
+        <div class="header-container">
+            <!-- Top bar: User welcome and logout -->
+            <div class="dashboard-user-bar" style="width: 100%;">
+                <div class="logo-area">
+                    <span class="logo-badge">GHS</span>
+                    <div>
+                        <div class="school-name-text">Greenwood High School Portal</div>
+                        <div class="user-info">
+                            Welcome, <strong>Principal Office</strong>
+                            <span class="role-badge">principal</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <a href="../index.html" class="btn btn-sm btn-secondary" target="_blank"
+                        title="View Public Website">Website &rarr;</a>
+                    <a href="../backend/logout.php" class="btn btn-sm btn-danger">Logout</a>
+                </div>
+            </div>
+
+            <!-- Dashboard Navigation Tabs -->
+            <nav style="width: 100%;">
+                <ul class="dashboard-nav">
+                    <li><a href="dashboard.php">Dashboard</a></li>
+                    <li><a href="students.html">Manage Students</a></li>
+                    <li><a href="faculty.html">Manage Faculty</a></li>
+                    <li><a href="notices.html" class="active">Notices</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Alert container for feedback messages -->
+        <div id="alert-container"></div>
+
+        <div class="page-header">
+            <div>
+                <h2>Manage School Notices</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Publish announcements to students, faculty, and
+                    the public school website</p>
+            </div>
+            <div>
+                <a href="dashboard.php" class="btn btn-secondary">&larr; Back to Dashboard</a>
+            </div>
+        </div>
+
+        <!-- 1. PUBLISH NOTICE FORM -->
+        <div class="form-card">
+            <h3>Publish New School Notice</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px;">
+                Announcements published here are visible on the public homepage and all user portals.
+            </p>
+
+            <form id="notice-form" action="../backend/notices.php" method="POST" data-validate>
+                <div class="form-grid">
+                    <!-- Notice Title -->
+                    <div class="form-group full-width">
+                        <label for="title">Notice Title <span style="color: #dc2626;">*</span></label>
+                        <input type="text" id="title" name="title" class="form-control"
+                            placeholder="e.g. Annual Sports Meet 2026 or Winter Vacation Circular" required>
+                    </div>
+
+                    <!-- Publication Date -->
+                    <div class="form-group">
+                        <label for="posted_date">Publication Date</label>
+                        <input type="date" id="posted_date" name="posted_date" class="form-control">
+                    </div>
+
+                    <!-- Issued By -->
+                    <div class="form-group">
+                        <label for="posted_by">Issuing Authority</label>
+                        <input type="text" id="posted_by" name="posted_by" class="form-control" value="Principal Office"
+                            required>
+                    </div>
+
+                    <!-- Announcement Body -->
+                    <div class="form-group full-width">
+                        <label for="content">Announcement Details <span style="color: #dc2626;">*</span></label>
+                        <textarea id="content" name="content" class="form-control" rows="5"
+                            placeholder="Enter the complete circular message, instructions, and dates..."
+                            required></textarea>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <button type="submit" class="btn btn-primary">Publish Notice to Board</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- 2. PUBLISHED NOTICES LIST -->
+        <div class="card-table-wrapper">
+            <h3>Published School Notices</h3>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 130px;">Date</th>
+                        <th style="width: 250px;">Title</th>
+                        <th>Announcement Content</th>
+                        <th style="width: 160px;">Issued By</th>
+                        <th style="width: 100px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="principal-notices-table-body">
+                    <tr>
+                        <td colspan="5" style="text-align: center; padding: 25px; color: var(--text-muted);">Loading
+                            notices...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+
+    <!--  DASHBOARD FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Greenwood High School</h4>
+                <p>Empowering young minds through academic rigor, moral values, and creative inquiry since 1995.</p>
+                <p style="font-size: 0.85rem; color: #94a3b8;">Affiliated with Central Board of Secondary Education</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <p><a href="../index.html" style="color: #cbd5e1;">&rsaquo; Home</a></p>
+                <p><a href="../index.html#about" style="color: #cbd5e1;">&rsaquo; About Us</a></p>
+                <p><a href="../index.html#academics" style="color: #cbd5e1;">&rsaquo; Academic Curriculum</a></p>
+                <p><a href="../index.html#notices" style="color: #cbd5e1;">&rsaquo; Public Notice Board</a></p>
+                <p><a href="../login.html" style="color: #cbd5e1;">&rsaquo; Portal Login</a></p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Details</h4>
+                <p><strong>Address:</strong> 123 Education Lane, Knowledge City, State - 560001</p>
+                <p><strong>Phone:</strong> +91 (555) 019-2834 / 2835</p>
+                <p><strong>Email:</strong> info@greenwoodhigh.edu</p>
+                <p><strong>Office Hours:</strong> Monday – Friday, 8:00 AM – 3:30 PM</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Greenwood High School. All rights reserved. | Simple Web Development Project</p>
+        </div>
+    </footer>
+
+    <!-- Main Client-Side JavaScript -->
+    <script src="../js/script.js"></script>
+    <script>
+        document.getElementById('posted_date').value = new Date().toISOString().split('T')[0];
+    </script>
+</body>
+
+</html>

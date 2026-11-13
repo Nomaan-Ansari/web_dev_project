@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Faculty - Greenwood High School</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- DASHBOARD HEADER -->
+    <header class="dashboard-header">
+        <div class="header-container">
+            <!-- Top bar: User welcome and logout -->
+            <div class="dashboard-user-bar" style="width: 100%;">
+                <div class="logo-area">
+                    <span class="logo-badge">GHS</span>
+                    <div>
+                        <div class="school-name-text">Greenwood High School Portal</div>
+                        <div class="user-info">
+                            Welcome, <strong>Principal Office</strong>
+                            <span class="role-badge">principal</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <a href="../index.html" class="btn btn-sm btn-secondary" target="_blank"
+                        title="View Public Website">Website &rarr;</a>
+                    <a href="../backend/logout.php" class="btn btn-sm btn-danger">Logout</a>
+                </div>
+            </div>
+
+            <!-- Dashboard Navigation Tabs -->
+            <nav style="width: 100%;">
+                <ul class="dashboard-nav">
+                    <li><a href="dashboard.php">Dashboard</a></li>
+                    <li><a href="students.html">Manage Students</a></li>
+                    <li><a href="faculty.html" class="active">Manage Faculty</a></li>
+                    <li><a href="notices.html">Notices</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <main class="main-content">
+        <!-- Alert container for feedback messages -->
+        <div id="alert-container"></div>
+
+        <div class="page-header">
+            <div>
+                <h2>Manage Teaching Faculty</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Register new teachers, update faculty
+                    assignments, and manage teacher profiles</p>
+            </div>
+            <div>
+                <a href="dashboard.php" class="btn btn-secondary">&larr; Back to Dashboard</a>
+            </div>
+        </div>
+
+        <!-- 1. ADD / EDIT FACULTY FORM -->
+        <div class="form-card">
+            <h3 id="form-heading">Register New Faculty Member</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px;">
+                Fill in the details below. Adding a faculty member automatically sets up their portal account.
+            </p>
+
+            <form id="faculty-form" action="../backend/faculty.php" method="POST" data-validate>
+                <input type="hidden" id="faculty_id" name="faculty_id" value="">
+
+                <div class="form-grid">
+                    <!-- Faculty Full Name -->
+                    <div class="form-group">
+                        <label for="full_name">Full Name (with Title) <span style="color: #dc2626;">*</span></label>
+                        <input type="text" id="full_name" name="full_name" class="form-control"
+                            placeholder="e.g. Dr. Robert Wilson" required>
+                    </div>
+
+                    <!-- Employee ID -->
+                    <div class="form-group">
+                        <label for="employee_id">Employee ID <span style="color: #dc2626;">*</span></label>
+                        <input type="text" id="employee_id" name="employee_id" class="form-control"
+                            placeholder="e.g. FAC-003" required>
+                    </div>
+
+                    <!-- Subject Specialization -->
+                    <div class="form-group">
+                        <label for="subject_specialization">Subject Specialization <span
+                                style="color: #dc2626;">*</span></label>
+                        <input type="text" id="subject_specialization" name="subject_specialization"
+                            class="form-control" placeholder="e.g. Mathematics, Science, English" required>
+                    </div>
+
+                    <!-- Qualification -->
+                    <div class="form-group">
+                        <label for="qualification">Academic Qualification</label>
+                        <input type="text" id="qualification" name="qualification" class="form-control"
+                            placeholder="e.g. M.Sc. Physics, B.Ed">
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div class="form-group">
+                        <label for="phone">Contact Phone</label>
+                        <input type="text" id="phone" name="phone" class="form-control" placeholder="e.g. 9876543210">
+                    </div>
+
+                    <!-- Email Address -->
+                    <div class="form-group">
+                        <label for="email">Email Address <span style="color: #dc2626;">*</span></label>
+                        <input type="email" id="email" name="email" class="form-control"
+                            placeholder="e.g. robert.wilson@school.com" required>
+                    </div>
+
+                    <!-- Username -->
+                    <div class="form-group">
+                        <label for="username">Login Username <span style="color: #dc2626;">*</span></label>
+                        <input type="text" id="username" name="username" class="form-control"
+                            placeholder="e.g. robertwilson" required>
+                    </div>
+
+                    <!-- Address -->
+                    <div class="form-group">
+                        <label for="address">Residential Address</label>
+                        <input type="text" id="address" name="address" class="form-control"
+                            placeholder="e.g. 12 Teacher Colony, City Center">
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group full-width">
+                        <label for="password">Login Password</label>
+                        <input type="password" id="password" name="password" class="form-control"
+                            placeholder="Enter password (default is 'faculty123')">
+                        <span id="password-help"
+                            style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-top: 4px;">
+                            For new faculty, leaving this blank will set the default password to
+                            <code>faculty123</code>.
+                        </span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 25px; display: flex; gap: 10px;">
+                    <button type="submit" id="submit-btn" class="btn btn-primary">Save &amp; Register Faculty</button>
+                    <a href="faculty.html" id="cancel-edit-btn" class="btn btn-secondary" style="display: none;">Cancel
+                        Edit</a>
+                </div>
+            </form>
+        </div>
+
+        <!-- 2. REGISTERED FACULTY DIRECTORY -->
+        <div class="card-table-wrapper">
+            <h3>Registered Faculty Directory</h3>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 120px;">Emp ID</th>
+                        <th>Faculty Name</th>
+                        <th style="width: 160px;">Subject</th>
+                        <th>Contact</th>
+                        <th style="width: 140px;">Username</th>
+                        <th style="width: 140px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="faculty-table-body">
+                    <tr>
+                        <td colspan="6" style="text-align: center; padding: 25px; color: var(--text-muted);">Loading
+                            faculty directory...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+
+    <!-- DASHBOARD FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Greenwood High School</h4>
+                <p>Empowering young minds through academic rigor, moral values, and creative inquiry since 1995.</p>
+                <p style="font-size: 0.85rem; color: #94a3b8;">Affiliated with Central Board of Secondary Education</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <p><a href="../index.html" style="color: #cbd5e1;">&rsaquo; Home</a></p>
+                <p><a href="../index.html#about" style="color: #cbd5e1;">&rsaquo; About Us</a></p>
+                <p><a href="../index.html#academics" style="color: #cbd5e1;">&rsaquo; Academic Curriculum</a></p>
+                <p><a href="../index.html#notices" style="color: #cbd5e1;">&rsaquo; Public Notice Board</a></p>
+                <p><a href="../login.html" style="color: #cbd5e1;">&rsaquo; Portal Login</a></p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Details</h4>
+                <p><strong>Address:</strong> 123 Education Lane, Knowledge City, State - 560001</p>
+                <p><strong>Phone:</strong> +91 (555) 019-2834 / 2835</p>
+                <p><strong>Email:</strong> info@greenwoodhigh.edu</p>
+                <p><strong>Office Hours:</strong> Monday – Friday, 8:00 AM – 3:30 PM</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Greenwood High School. All rights reserved. | Simple Web Development Project</p>
+        </div>
+    </footer>
+
+    <!-- Main Client-Side JavaScript -->
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

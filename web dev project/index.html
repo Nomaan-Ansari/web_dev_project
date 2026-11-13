@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Greenwood High School</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- PUBLIC WEBSITE HEADER -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo-area">
+                <span class="logo-badge">GHS</span>
+                <div>
+                    <div class="school-name-text">Greenwood High School</div>
+                    <div class="school-tagline">Excellence in Education & Character</div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+            <!-- Navigation Links -->
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About Us</a></li>
+                <li><a href="#academics" class="nav-link">Academics</a></li>
+                <li><a href="#notices" class="nav-link">Notices</a></li>
+                <li id="nav-login-item"><a href="login.html" class="nav-link nav-link-login">Login</a></li>
+            </ul>
+        </div>
+    </header>
+
+
+    <main class="main-content">
+        <div id="alert-container"></div>
+
+        <!-- 1. HERO / WELCOME SECTION -->
+        <section class="hero-banner">
+            <h1>Welcome to Greenwood High School</h1>
+            <p>Inspiring students to achieve academic excellence, develop strong moral character, and lead with purpose
+                in a global society.</p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+                <a href="#notices" class="btn btn-secondary">Notice Board</a>
+                <a href="login.html" id="hero-portal-btn" class="btn btn-primary"
+                    style="background-color: #ffffff; color: var(--primary-blue);">Portal Login &rarr;</a>
+            </div>
+        </section>
+
+        <!-- 2. SCHOOL FACILITIES SECTION -->
+        <section class="section-block" id="facilities">
+            <h2 class="section-title">School Facilities</h2>
+            <div class="grid-cards">
+                <div class="facility-card">
+                    <h3>Modern Science Laboratories</h3>
+                    <p>Fully equipped Physics, Chemistry, and Biology laboratories designed for safe, hands-on
+                        scientific experimentation and discovery.</p>
+                </div>
+
+                <div class="facility-card">
+                    <h3>Digital Smart Classrooms</h3>
+                    <p>Interactive display panels and multimedia teaching tools that make daily lessons engaging,
+                        visual, and highly interactive.</p>
+                </div>
+
+                <div class="facility-card">
+                    <h3>Central Library & Reading Hall</h3>
+                    <p>Over 15,000 reference books, encyclopedias, literary classics, and quiet study areas to cultivate
+                        a lifelong habit of reading.</p>
+                </div>
+
+                <div class="facility-card">
+                    <h3>Sports Complex & Athletics</h3>
+                    <p>Spacious football grounds, basketball and badminton courts, and dedicated physical education
+                        trainers to keep students fit and active.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. ABOUT US SECTION -->
+        <section class="section-block" id="about">
+            <h2 class="section-title">About Our School</h2>
+            <div class="info-box">
+                <p><strong>Greenwood High School</strong> was founded in 1995 with a mission to deliver well-rounded,
+                    value-based education. Over the past three decades, we have nurtured thousands of students who have
+                    gone on to excel in academics, leadership, and public service.</p>
+                <p>Our experienced faculty members employ progressive teaching methodologies, balancing rigorous
+                    academic standards with co-curricular growth, sportsmanship, and civic responsibility.</p>
+                <p style="margin-top: 10px; color: var(--primary-blue); font-weight: 600;">
+                    Our Core Values: Integrity &bull; Discipline &bull; Academic Rigor &bull; Compassion &bull;
+                    Continuous Learning
+                </p>
+            </div>
+        </section>
+
+        <!-- 4. ACADEMICS SECTION -->
+        <section class="section-block" id="academics">
+            <h2 class="section-title">Academic Programs</h2>
+            <div class="grid-cards">
+                <div class="facility-card" style="border-top-color: #1e3a8a;">
+                    <h3>Primary School (Classes 1 - 5)</h3>
+                    <p>Fosters foundational literacy, numeracy, creative expression, and curiosity through
+                        collaborative, activity-based learning.</p>
+                </div>
+
+                <div class="facility-card" style="border-top-color: #1e3a8a;">
+                    <h3>Middle School (Classes 6 - 8)</h3>
+                    <p>Broadens knowledge across Science, Mathematics, Social Studies, and Languages while developing
+                        analytical and problem-solving skills.</p>
+                </div>
+
+                <div class="facility-card" style="border-top-color: #1e3a8a;">
+                    <h3>Secondary School (Classes 9 - 10)</h3>
+                    <p>Prepares students for board examinations with intensive conceptual coaching, regular assessments,
+                        and dedicated academic counseling.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. NOTICE BOARD SECTION -->
+        <section class="section-block" id="notices">
+            <h2 class="section-title">School Notice Board</h2>
+            <div class="notice-board" id="public-notices-list">
+                <p style="color: var(--text-muted); padding: 15px 0;">Loading announcements...</p>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- PUBLIC FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <!-- Col 1: About School -->
+            <div class="footer-col">
+                <h4>Greenwood High School</h4>
+                <p>Empowering young minds through academic rigor, moral values, and creative inquiry since 1995.</p>
+                <p style="font-size: 0.85rem; color: #94a3b8;">Affiliated with Central Board of Secondary Education</p>
+            </div>
+
+            <!-- Col 2: Quick Navigation -->
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <p><a href="index.html" style="color: #cbd5e1;">&rsaquo; Home</a></p>
+                <p><a href="#about" style="color: #cbd5e1;">&rsaquo; About Us</a></p>
+                <p><a href="#academics" style="color: #cbd5e1;">&rsaquo; Academic Curriculum</a></p>
+                <p><a href="#notices" style="color: #cbd5e1;">&rsaquo; Public Notice Board</a></p>
+                <p><a href="login.html" style="color: #cbd5e1;">&rsaquo; Portal Login</a></p>
+            </div>
+
+            <!-- Col 3: Contact Details -->
+            <div class="footer-col">
+                <h4>Contact Details</h4>
+                <p><strong>Address:</strong> 123 Education Lane, Knowledge City, State - 560001</p>
+                <p><strong>Phone:</strong> +91 (555) 019-2834 / 2835</p>
+                <p><strong>Email:</strong> info@greenwoodhigh.edu</p>
+                <p><strong>Office Hours:</strong> Monday – Friday, 8:00 AM – 3:30 PM</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Greenwood High School. All rights reserved. | Simple Web Development Project</p>
+        </div>
+    </footer>
+
+    <!-- Main Client-Side JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

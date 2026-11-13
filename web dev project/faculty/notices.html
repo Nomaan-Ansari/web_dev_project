@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Notices - Greenwood High School</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- DASHBOARD HEADER -->
+    <header class="dashboard-header">
+        <div class="header-container">
+            <!-- Top bar: User welcome and logout -->
+            <div class="dashboard-user-bar" style="width: 100%;">
+                <div class="logo-area">
+                    <span class="logo-badge">GHS</span>
+                    <div>
+                        <div class="school-name-text">Greenwood High School Portal</div>
+                        <div class="user-info">
+                            Welcome, <strong>Faculty Member</strong>
+                            <span class="role-badge">faculty</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <a href="../index.html" class="btn btn-sm btn-secondary" target="_blank"
+                        title="View Public Website">Website &rarr;</a>
+                    <a href="../backend/logout.php" class="btn btn-sm btn-danger">Logout</a>
+                </div>
+            </div>
+
+            <!-- Dashboard Navigation Tabs -->
+            <nav style="width: 100%;">
+                <ul class="dashboard-nav">
+                    <li><a href="dashboard.php">Dashboard</a></li>
+                    <li><a href="attendance.html">Student Attendance</a></li>
+                    <li><a href="assignments.html">Assignments</a></li>
+                    <li><a href="marks.html">Student Marks</a></li>
+                    <li><a href="notices.html" class="active">Notices</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Alert container for feedback messages -->
+        <div id="alert-container"></div>
+
+        <div class="page-header">
+            <div>
+                <h2>School Notices &amp; Announcements</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Official circulars and announcements published
+                    by the Principal Office</p>
+            </div>
+            <div>
+                <a href="dashboard.php" class="btn btn-secondary">&larr; Back to Dashboard</a>
+            </div>
+        </div>
+
+        <div class="card-table-wrapper">
+            <h3>School Notice Board</h3>
+            <div class="notice-board" id="faculty-notices-container"
+                style="border: none; padding: 0; box-shadow: none;">
+                <p style="color: var(--text-muted); padding: 15px 0;">Loading notices...</p>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- DASHBOARD FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Greenwood High School</h4>
+                <p>Empowering young minds through academic rigor, moral values, and creative inquiry since 1995.</p>
+                <p style="font-size: 0.85rem; color: #94a3b8;">Affiliated with Central Board of Secondary Education</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <p><a href="../index.html" style="color: #cbd5e1;">&rsaquo; Home</a></p>
+                <p><a href="../index.html#about" style="color: #cbd5e1;">&rsaquo; About Us</a></p>
+                <p><a href="../index.html#academics" style="color: #cbd5e1;">&rsaquo; Academic Curriculum</a></p>
+                <p><a href="../index.html#notices" style="color: #cbd5e1;">&rsaquo; Public Notice Board</a></p>
+                <p><a href="../login.html" style="color: #cbd5e1;">&rsaquo; Portal Login</a></p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Details</h4>
+                <p><strong>Address:</strong> 123 Education Lane, Knowledge City, State - 560001</p>
+                <p><strong>Phone:</strong> +91 (555) 019-2834 / 2835</p>
+                <p><strong>Email:</strong> info@greenwoodhigh.edu</p>
+                <p><strong>Office Hours:</strong> Monday – Friday, 8:00 AM – 3:30 PM</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Greenwood High School. All rights reserved. | Simple Web Development Project</p>
+        </div>
+    </footer>
+
+    <!-- Main Client-Side JavaScript -->
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

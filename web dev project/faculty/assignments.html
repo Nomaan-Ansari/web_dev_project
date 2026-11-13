@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Assignments - Greenwood High School</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!--  DASHBOARD HEADER  -->
+    <header class="dashboard-header">
+        <div class="header-container">
+            <!-- Top bar: User welcome and logout -->
+            <div class="dashboard-user-bar" style="width: 100%;">
+                <div class="logo-area">
+                    <span class="logo-badge">GHS</span>
+                    <div>
+                        <div class="school-name-text">Greenwood High School Portal</div>
+                        <div class="user-info">
+                            Welcome, <strong>Faculty Member</strong>
+                            <span class="role-badge">faculty</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <a href="../index.html" class="btn btn-sm btn-secondary" target="_blank"
+                        title="View Public Website">Website &rarr;</a>
+                    <a href="../backend/logout.php" class="btn btn-sm btn-danger">Logout</a>
+                </div>
+            </div>
+
+            <!-- Dashboard Navigation Tabs -->
+            <nav style="width: 100%;">
+                <ul class="dashboard-nav">
+                    <li><a href="dashboard.php">Dashboard</a></li>
+                    <li><a href="attendance.html">Student Attendance</a></li>
+                    <li><a href="assignments.html" class="active">Assignments</a></li>
+                    <li><a href="marks.html">Student Marks</a></li>
+                    <li><a href="notices.html">Notices</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Alert container for feedback messages -->
+        <div id="alert-container"></div>
+
+        <div class="page-header">
+            <div>
+                <h2>Manage Class Assignments</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Post homework, coursework tasks, and project
+                    instructions for your students</p>
+            </div>
+            <div>
+                <a href="dashboard.php" class="btn btn-secondary">&larr; Back to Dashboard</a>
+            </div>
+        </div>
+
+        <!--  1. CREATE ASSIGNMENT FORM -->
+        <div class="form-card">
+            <h3>Create New Assignment</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px;">
+                Assignments will be displayed on the student portal for the selected class division.
+            </p>
+
+            <form id="assignment-form" action="../backend/assignments.php" method="POST" data-validate>
+                <div class="form-grid">
+                    <!-- Assignment Title -->
+                    <div class="form-group full-width">
+                        <label for="title">Assignment Title <span style="color: #dc2626;">*</span></label>
+                        <input type="text" id="title" name="title" class="form-control"
+                            placeholder="e.g. Chapter 4 Quadratic Equations Exercise or Photosynthesis Lab Report"
+                            required>
+                    </div>
+
+                    <!-- Subject -->
+                    <div class="form-group">
+                        <label for="subject">Academic Subject <span style="color: #dc2626;">*</span></label>
+                        <input type="text" id="subject" name="subject" class="form-control"
+                            placeholder="e.g. Mathematics, Science, English" required>
+                    </div>
+
+                    <!-- Class Name -->
+                    <div class="form-group">
+                        <label for="class_name">Target Class <span style="color: #dc2626;">*</span></label>
+                        <select id="class_name" name="class_name" class="form-control" required>
+                        </select>
+                    </div>
+
+                    <!-- Due Date -->
+                    <div class="form-group">
+                        <label for="due_date">Submission Due Date <span style="color: #dc2626;">*</span></label>
+                        <input type="date" id="due_date" name="due_date" class="form-control" required>
+                    </div>
+
+                    <!-- Description / Instructions -->
+                    <div class="form-group full-width">
+                        <label for="description">Instructions &amp; Problem Details <span
+                                style="color: #dc2626;">*</span></label>
+                        <textarea id="description" name="description" class="form-control" rows="4"
+                            placeholder="Detail the questions, exercises, submission guidelines, or reading tasks required..."
+                            required></textarea>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <button type="submit" class="btn btn-primary">Publish Assignment</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- 2. FACULTY ASSIGNMENTS TABLE -->
+        <div class="card-table-wrapper">
+            <h3>My Published Assignments</h3>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 130px;">Due Date</th>
+                        <th style="width: 120px;">Class</th>
+                        <th style="width: 140px;">Subject</th>
+                        <th style="width: 220px;">Assignment Title</th>
+                        <th>Instructions</th>
+                        <th style="width: 100px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="assignments-table-body">
+                    <tr>
+                        <td colspan="6" style="text-align: center; padding: 25px; color: var(--text-muted);">Loading
+                            assignments...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+
+    <!-- DASHBOARD FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Greenwood High School</h4>
+                <p>Empowering young minds through academic rigor, moral values, and creative inquiry since 1995.</p>
+                <p style="font-size: 0.85rem; color: #94a3b8;">Affiliated with Central Board of Secondary Education</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <p><a href="../index.html" style="color: #cbd5e1;">&rsaquo; Home</a></p>
+                <p><a href="../index.html#about" style="color: #cbd5e1;">&rsaquo; About Us</a></p>
+                <p><a href="../index.html#academics" style="color: #cbd5e1;">&rsaquo; Academic Curriculum</a></p>
+                <p><a href="../index.html#notices" style="color: #cbd5e1;">&rsaquo; Public Notice Board</a></p>
+                <p><a href="../login.html" style="color: #cbd5e1;">&rsaquo; Portal Login</a></p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Details</h4>
+                <p><strong>Address:</strong> 123 Education Lane, Knowledge City, State - 560001</p>
+                <p><strong>Phone:</strong> +91 (555) 019-2834 / 2835</p>
+                <p><strong>Email:</strong> info@greenwoodhigh.edu</p>
+                <p><strong>Office Hours:</strong> Monday – Friday, 8:00 AM – 3:30 PM</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Greenwood High School. All rights reserved. | Simple Web Development Project</p>
+        </div>
+    </footer>
+
+    <!-- Main Client-Side JavaScript -->
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

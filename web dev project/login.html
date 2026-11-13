@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login - Greenwood High School</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- PUBLIC WEBSITE HEADER -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo-area">
+                <span class="logo-badge">GHS</span>
+                <div>
+                    <div class="school-name-text">Greenwood High School</div>
+                    <div class="school-tagline">Excellence in Education & Character</div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+            <!-- Navigation Links -->
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About Us</a></li>
+                <li><a href="index.html#academics" class="nav-link">Academics</a></li>
+                <li><a href="index.html#notices" class="nav-link">Notices</a></li>
+                <li><a href="login.html" class="nav-link nav-link-login active">Login</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="login-container">
+            <div class="login-card" id="login-card">
+                <h2>School Portal Login</h2>
+                <p class="subtitle">Sign in to access your dashboard</p>
+
+                <!-- Alert container for error messages and logout notices -->
+                <div id="alert-container"></div>
+
+                <form action="backend/login.php" method="POST" data-validate>
+                    <div class="form-group">
+                        <label for="login_input">Email or Username</label>
+                        <input type="text" id="login_input" name="login_input" class="form-control"
+                            placeholder="e.g. principal, faculty1, or student1" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" class="form-control"
+                            placeholder="Enter your password" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block" style="margin-top: 22px;">
+                        Login to Portal
+                    </button>
+                </form>
+
+                <div style="text-align: center; margin-top: 20px; font-size: 0.9rem;">
+                    <a href="index.html">&larr; Return to School Homepage</a>
+                </div>
+            </div>
+
+            <!-- Sample Login Box for Testing -->
+            <div
+                style="background: #ffffff; border: 1px dashed var(--border-blue); border-radius: 6px; padding: 15px; margin-top: 20px; font-size: 0.85rem; color: var(--text-dark);">
+                <strong style="color: var(--primary-blue); display: block; margin-bottom: 8px;">Sample Test
+                    Accounts:</strong>
+                <ul style="list-style-type: none; padding-left: 0; line-height: 1.8;">
+                    <li>&bull; <strong>Principal:</strong> <code>principal</code> / <code>admin123</code></li>
+                    <li>&bull; <strong>Faculty:</strong> <code>faculty1</code> / <code>faculty123</code></li>
+                    <li>&bull; <strong>Student:</strong> <code>student1</code> / <code>student123</code></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- PUBLIC FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Greenwood High School</h4>
+                <p>Empowering young minds through academic rigor, moral values, and creative inquiry since 1995.</p>
+                <p style="font-size: 0.85rem; color: #94a3b8;">Affiliated with Central Board of Secondary Education</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <p><a href="index.html" style="color: #cbd5e1;">&rsaquo; Home</a></p>
+                <p><a href="index.html#about" style="color: #cbd5e1;">&rsaquo; About Us</a></p>
+                <p><a href="index.html#academics" style="color: #cbd5e1;">&rsaquo; Academic Curriculum</a></p>
+                <p><a href="index.html#notices" style="color: #cbd5e1;">&rsaquo; Public Notice Board</a></p>
+                <p><a href="login.html" style="color: #cbd5e1;">&rsaquo; Portal Login</a></p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Details</h4>
+                <p><strong>Address:</strong> 123 Education Lane, Knowledge City, State - 560001</p>
+                <p><strong>Phone:</strong> +91 (555) 019-2834 / 2835</p>
+                <p><strong>Email:</strong> info@greenwoodhigh.edu</p>
+                <p><strong>Office Hours:</strong> Monday – Friday, 8:00 AM – 3:30 PM</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Greenwood High School. All rights reserved. | Simple Web Development Project</p>
+        </div>
+    </footer>
+
+    <!-- Main Client-Side JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
